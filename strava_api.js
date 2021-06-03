@@ -8,6 +8,7 @@ function getActivities(info) {
         .then((res) => res.json())
         .then(function (data) {
             var map = L.map('map').setView([42.664853, 23.352025], 13);
+            document.getElementById("userName").append(`Потребител № ${data[0].athlete.id}.`);
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -17,7 +18,7 @@ function getActivities(info) {
             let totalKm = 0;
 
             for (let x = 0; x < data.length; x++) {
-                // console.log(data[x]);
+                
                 totalKm += (+data[x].distance)/1000;
                 let poly = data[x].map.summary_polyline;
                 if (poly) {
