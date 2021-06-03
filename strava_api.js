@@ -55,9 +55,9 @@ function reAuthorize() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            client_id: secrets.CLIENT_ID,
-            client_secret: secrets.CLIENT_SECRET,
-            refresh_token: secrets.REFRESH_TOKEN,
+            client_id: env.CLIENT_ID,
+            client_secret: env.CLIENT_SECRET,
+            refresh_token: env.REFRESH_TOKEN,
             grant_type: 'refresh_token'
         })
     }).then((res) => res.json())
